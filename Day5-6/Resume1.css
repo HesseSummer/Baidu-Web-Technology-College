@@ -1,0 +1,3 @@
+.first {font-weight: bold;}
+.first::after {content: "A"; visibility: hidden;}
+.second::after {content: "ABCDEFG"; visibility: hidden;}
