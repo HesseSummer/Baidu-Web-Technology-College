@@ -1,0 +1,29 @@
+.first {font-weight: bold;}
+.first::after {content: "A"; visibility: hidden;}
+.second::after {content: "ABCDEFG"; visibility: hidden;}
+.clearfix::after {/*为避免忘记，先将父元素设置clearfix*/
+    display: block;
+    content: ".";
+    clear: both;
+    line-height: 0;
+    visibility: hidden;
+}
+body {
+    margin: 0 auto;
+    max-width: 70%;/*这里不能是100%！*/
+}
+h1 {
+    float: left;
+    width: 20%;
+    height: 627.76px;/*浮动项目的背景高度问题由于它自身的原因没有办法很好的解决，为了页面效果只能怪这样妥协了：和内容区div的高度设为一样地值*/
+    margin-top: 0;
+    margin-right: 1em;
+    line-height: 4;/*这个line-height也是不得已的妥协，我还没有想到很好的解决方法*/
+    text-align: center;
+    background: #36A4F9;
+    color: #FFFFFF;
+}
+body > div {
+    float: left;/*浮动实现布局时，最好都设为浮动*/
+    width: 75%;
+}
