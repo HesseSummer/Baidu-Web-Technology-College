@@ -1,0 +1,129 @@
+body {margin: 0; padding: 0;}
+header {
+    height: 100px;
+    background: #333333;
+}
+header>div {
+    width: 960px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative; 
+}
+#logo {
+    line-height: 100px;
+    font-size: 18px;
+    color: #FFF;
+}
+#basic-nav {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    font-size: 12px;
+    color: #FFF;
+    text-decoration: underline;
+}
+#basic-nav a::before {
+    content: "A";
+    visibility: hidden;
+}
+#basic-nav a:link, #basic-nav a:visited {
+    color: #FFF;
+    text-decoration: none;
+    font-size: 15px;
+}
+#banner {position: relative;}
+#image {
+    margin: 0;
+    padding: 0;
+    height: 350px;
+    background: #66BB33;
+}
+#slide {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 162px;
+    height: 48px;
+    margin: 0;
+    padding: 0;
+    right: 20%;
+    bottom: 8px;
+}
+#slide div {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    margin: 0;
+    border:#333333 1px solid;
+    background: rgba(215, 219, 213, 0.5);
+    font-size: 12px;
+    text-align: center;
+    line-height: 36px;
+}
+#slide div:hover {
+    height: 48px;
+    line-height: 58px;
+}
+nav {
+    margin: 0;
+    padding: 0;
+    height: 64px;
+    border-bottom: #E4E4E4 1px solid;
+}
+nav>div {
+    display: flex;
+    align-items: flex-end;
+    margin: 0 auto;
+    padding: 0;
+    width: 960px;
+    height: 64px;
+}
+nav>div a {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 160px;
+    height: 48px;
+    border: #E4E4E4 1px solid;
+    border-bottom: none;
+    border-radius: 25px 25px 0 0;
+    background: #EEEEEE;
+    text-align: center;
+    line-height: 48px;
+}
+nav a:link, nav a:visited {color: #333333; text-decoration: none;}
+nav a:hover{
+    background: #FFF;
+    border-bottom: rgb(226, 44, 44) 3px solid;
+    /*position: relative;
+    z-index: 1;  */
+}
+article>div {
+    display: flex;
+    margin: 0 auto;
+    padding: 0;
+    width: 960px;
+}
+article section {
+    flex: 1;
+    box-sizing: border-box;
+    height: 200px;
+    margin: 8px 8px 0 0;
+    padding: 80px;
+    text-align: center;
+    line-height: 40px;
+    border: #E4E4E4 1px solid;
+}
+article div section:last-child {
+    margin-right: 0;
+}
+footer {
+    height: 200px;
+    margin-top: 64px;
+    padding: 1em;
+    background: #666666;
+    text-align: center;
+    color: #E4E4E4;
+    font-size: 15px;
+}
