@@ -1,0 +1,619 @@
+/*Iconfont图标*/
+@font-face {
+    font-family: 'iconfont';
+    src: url('iconfont.eot');
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+    url('iconfont.woff') format('woff'),
+    url('iconfont.ttf') format('truetype'),
+    url('iconfont.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+/*主要CSS部分*/
+/*通用规则*/
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+/*body*/
+body {
+    font: 16px "Helvetica Neue", "PingFang SC", "Microsoft Yahei", Arial, Verdana, sans-serif;
+}
+/*最上面的黑色导航条，名为head-column-1*/
+/*这是外层，为了实现内容放中间+两侧也被染色，必需一个外层*/
+#head-column-1-outer {
+    height: 36px;
+    border-bottom: 1px solid rgb(77, 74, 74);
+    background-color: #000;
+}
+/*这是内层*/
+#head-column-1 {
+    width: 1200px;
+    margin: 0 auto;
+    font-size: 12px;/*设计每个字体大小、颜色一致*/
+    color: #AEAEAE;
+    line-height: 36px;/*设计每个字体都垂直居中*/
+    /*因为左边导航内容是左对齐，右边内容是右对齐，所以需要inline-block: left-group和right-group，并使它们分散在两边*/
+    display: flex;
+    justify-content: space-between;
+}
+#left-group {
+    display: inline-block;
+}
+#right-group {
+    display: inline-block;
+    text-align: right;/*右对齐*/
+}
+/*在每个group内使用inline-block实现水平布局*/
+/*每个group内都是a元素，已经是inline了，所以至此布局效果已达到*/
+/*下面是具体细微的调整——左边*/
+#qq .iconfont {
+    font-size: 15px;
+    vertical-align: middle;/*不明白：为什么一个i元素非设置vertical-aligh不可*/
+} 
+#wx .iconfont {
+    font-size: 20px;
+    vertical-align: middle;
+}
+#qq:link, #qq:visited,/*把默认设置覆盖掉*/
+#wx:link, #wx:visited {
+    color: #AEAEAE;
+    text-decoration: none;
+}
+#qq:hover,
+#wx:hover {
+    color: #09C0A8;
+    text-decoration: none;
+}
+/*下面是具体细微的调整——右边*/
+#login-box, #register-box {/*都有的*/
+    display: inline-block;
+    width: 63px;
+    height: 26px;
+    margin-left: 16px;
+    border: #AEAEAE 1px solid;
+    border-radius: 100px;
+    text-align: center;
+    line-height: 26px;
+    vertical-align: middle;/*使这个inline-block垂直居中，必不可少*/
+}
+#login-box:link, #login-box:visited {/*把默认设置覆盖掉*/
+    color: #AEAEAE;
+    text-decoration: none;
+}
+#login-box:hover {
+  color: #09C0A8;
+  text-decoration: none;
+  border:  #09C0A8 1px solid;
+}
+#register-box:link, #register-box:visited {/*把默认设置覆盖掉*/
+    background: #09C0A8;
+    color: aliceblue;
+    border:  #09C0A8 1px solid;/*懒得另写一个#register-box{}了，就写到这里了*/
+}
+#register-box:hover {
+    background: #7ccec0;
+    color: aliceblue;
+    text-decoration: none;
+}
+#language-box {
+    display: inline-block;
+    color: #AEAEAE;
+    text-decoration: none;
+    height: 26px;
+    line-height: 26px;
+    vertical-align: middle;
+}
+#language-box i {
+  vertical-align: middle;
+}
+#language-box:link, #language:visited {
+    color: #AEAEAE;/*把默认设置覆盖掉*/
+    text-decoration: none;
+}
+#triangle {/*在此处对所有triange都进行设置*/
+    width: 26px;
+    height: 26px;
+    vertical-align: middle;
+    transition: 0.5s;   /*？效果虽达，理解仍不是很充分？？？？？？？*/
+}
+#language-box:hover #triangle {/*当时triange设置*/
+  transform: rotate(180deg);
+  transition: 0.5s;
+}
+/*下面处理a元素内的ul元素*/
+/*使用定位技术+height=0 or auto 实现效果*/
+#language-box ul {
+  position: relative;
+  top: 4px;
+  z-index: 101;/*压过100的那个*/
+  list-style: none;
+  background: #1d1f20;
+  color: #fff;
+  text-align: left;
+  line-height: 250%;/*line-height很好用哦~*/
+  padding: 0 1em;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;/*竟然不行！！！！！！！！！！！！！！！！！！！！！！*/
+
+  height: 0;
+  overflow: hidden;
+}
+#language-box:hover ul {
+  height: auto;
+  transition: 2s;/*不管用哭！*/
+}
+#language-box:hover ul:hover li:hover {
+  color: #09C0A8;
+}
+/*下面处理第二个导航栏，名为head-column-2*/
+#head-column-2-outer {
+  position: sticky;/*为了实现效果*/
+  top: 0;
+  z-index: 100;
+
+  height: 74px;
+  background: rgba(0, 0, 0, 0.55);
+}
+#head-column-2 {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;/*作为其直接子元素img、nav-2，以及子子元素ul（.two）的定位参考*/
+}
+/*head-column-2里有三个元素：图片、nav-1、nav-2*/
+/*布局实现方式：定位、inline-block、定位*/
+/*img:*/
+#head-column-2>img {
+  display: inline-block;/*inline元素是无法定位的*/
+  padding-bottom: 21px;
+}
+/*nav-1:*/
+/*第一层：*/
+#nav-1 {
+  display: inline-block;
+  margin-left: 32px;/*避免发生重叠*/
+}
+#nav-1 .one>li { /*不需要讲li设为inline-block，list-item本身就可以实现浮动效果*/
+  float: left;/*这里绝对不能使用inline-block，因为当:hover font-size增大时，字体基线会变化，整个ul都会变化，非常糟糕！*/
+  width: 120px;
+  height: 74px;
+  color: #FFF;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 74px;
+  text-align: center;
+}
+#nav-1 .one>li>a:link, #nav-1 .one>li>a:visited {
+  color: #FFF;/*覆盖默认设置*/
+}
+#nav-1 .one>li>a:hover span{/*只想要span元素发生的变化*/
+  display: inline-block;
+  font-size: 18px;
+  color: #09C0A8;
+  border-bottom: 3px solid #09C0A8;/*...useless:list-item可以设置border属性*/
+}
+#nav-1 .one>li>a:hover #triangle {
+  transform: rotate(180deg);
+  transition: 0.5s;
+}
+/*第二层：*/
+.two {/*所有（4个）第二层的ul都进行的设置*/
+  position: absolute;/*根据设计需要，使用定位技术*/
+  top: 76px;/*其上的relative元素是head-column-2*/
+  display: flex;/*其内的li使用flex布局*/
+  /*height: 170px;*/
+  background: #FFF;
+
+  height: 0;
+  overflow: hidden;/*别忘了，忘了也没关系的说..因为这是个很容易发现的失误*/
+  transition: height 0.3s;/*not work!*/
+}
+.one>li:hover .two {/*选择器要谨慎写啊~别写错了~*/
+  height: 170px;
+  transition: height 0.3s;/*not work!*/
+}
+.two>li {
+  box-sizing: border-box;
+  padding: 30px 0 0 30px;
+  text-align: left;/*text-align是会继承的*/
+}
+.two>li>h3 {
+  font-size: 14px;
+  line-height: 200%;
+  color: #272727;
+}
+.two>li>h3 i {
+  color: #524b8a;
+  font-size: 20px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.two>li>h3>a:link, .two>li>h3>a:visited {
+  color: #272727;/*覆盖默认设置*/
+}
+.two>li>h3>a:hover {
+  color: #09C0A8;
+}
+.two li p {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 150%;
+  color: #aca7a2;
+}
+.two>li::before { /*在每个li右边画出一条竖线*/
+  float: right;
+  content: ".";
+  line-height: 0;
+  height: 110px;
+  width: 0px;
+  margin-left: 30px;
+  border: #e5e4e5 0.5px solid;
+}
+.two>li:last-child::before {/*最后一个li右边没有竖线*/
+  border: none;
+}
+
+/*具体到每个ul是不同的位置、宽度；每个li占所在ul的比例也不同*/
+#two-1 {
+  left: 0;
+  width: 1200px;
+}
+#two-1 li {
+  width: 20%;
+}
+#two-2 {
+  left: 0;
+  width: 960px;
+}
+#two-2 li {
+  width: 25%;
+}
+#two-3 {
+  left: 270px;
+  width: 480px;
+}
+#two-3 li {
+  width: 50%;
+}
+#two-4 {
+  left: 390px;
+  width: 480px;
+}
+#two-4 li {
+  width: 50%;
+}
+/*nav-2:*/
+#nav-2 {/*使用浮动当然也可以*/
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+#nav-2 ul li {
+  float: right;
+  width: 80px;
+  height: 74px;
+  color: #FFF;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 74px;
+  text-align: center;
+}
+#nav-2 li a:link, #nav-2 li a:visited {
+  color: #FFF;/*覆盖默认设置*/
+}
+#nav-2 li a:hover {
+  font-size: 14px;
+}
+
+/*第三栏：图片banner区*/
+#banner {
+  height: 600px;
+  position: relative;/*供words定位*/
+}
+#banner #words {
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  width: 700px;
+  color: #FFF;
+}
+#words h1 {
+  font-size: 42px;
+  font-weight: 400;
+}
+#words h1, #words p {
+  margin-bottom: 25px;
+}
+#words a {
+  display: block;
+  width: 135px;
+  height: 40px;
+  margin-top: 50px;
+  border: #FFF 1px solid;
+  border-radius: 100px;
+  text-align: center;
+  line-height: 40px;
+}
+#words a:link, #words a:visited {
+  color: #FFF;
+}
+#words a:hover {
+  color: #09C0A8;
+  border-color: #09C0A8;
+}
+#background-1 {/*为了实现设计效果，这个图片得是从body开始到banner末尾这个区域的背景*/
+  background: url(img/banner.jpg);
+}
+/*第四部分，淡紫色区域的部分，名为advert*/
+#advert-outer {
+  height: 123.5px;
+  background: url(img/advert-background.jpg);/*直接把图片部分作为背景了*/
+  background-size: contain;/*important property!*/
+}
+#advert {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;/*使用flexbox布局*/
+}
+#advert div {
+  width: 25%;
+}
+#advert div h2 {
+  font-size: 17px;
+  margin-left: 100px;
+  margin-top: 27px;
+}
+#advert div p {
+  font-size: 10px;
+  margin-left: 100px;
+  margin-top: 10px;
+  width: 185px;
+}
+/*第五部分，名为content-1*/
+#content-1 {
+  padding-top: 67px;
+  padding-bottom: 70px;
+}
+#content-1-title {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 18px 0;
+  border-bottom: 1px solid #D8D8D8;
+  text-align: center;/*对h1和p的统一设置*/
+  font-weight: 400;/*?*/
+}
+#content-1-title h1 {
+  font-size: 30px;
+  color: #525252;
+  font-weight: 400;
+}
+#content-1-title p {/*title打错字了！*/
+  margin-top: 10px;
+  color: #9B9B9B;
+  font-size: 16px;
+}
+/*3张牌整体所在的空间名为content-1-list*/
+#content-1-list {
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: 30px;
+  position: relative;/*作为每个list-part的参考*/
+}
+/*每张牌叫做list-part。统一设置：*/
+#content-1-list .list-part {
+  width: 396px;
+  min-height: 480px;/*最小高度？？？？？？？necessary???*/
+  margin-top: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 32px 0 rgba(0,0,0,0.18);
+  transform: translateZ(0);
+  transition: transform 0.5s;/*not work!!!!!!!!!!!!!!!*/
+}
+#content-1-list .list-part h2 {
+  box-sizing: border-box;/*希望border抢占内容区空间，而不是外面的空间，不知道可以不可以*/
+  height: 20%;
+  padding: 0 16px;
+  background: #f8f8f8;
+  border-radius: 20px 20px 0 0;
+  border-bottom: 1px solid #e6e6e6;
+  color: #1d1f20;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 111px;/*这样能实现吗*/
+  transition: transform 0.3s;/*有必要吗？继承？*/
+}
+#content-1-list .list-part .part-p {
+  box-sizing: border-box;
+  width: 100%;
+  height: 480px;
+  padding: 40px 16px;
+  border-radius: 0 0 20px 20px;
+  background: #fff;
+  display: flex;/*使用弹性盒子布局下半部分*/
+  flex-wrap: wrap;
+}
+#content-1-list .list-part .part-p>a {
+  display: block;
+  box-sizing: border-box;
+  width: 50%;
+  padding: 0 16px 32px 16px;
+}
+/*#content-1-list .list-part .part-p div {
+  box-sizing: border-box;
+  width: 50%;
+  padding: 0 16px 32px 16px;
+}*/
+#content-1-list .list-part .part-p div h3{
+  font-size: 14px;
+  color: #272727;
+}
+#content-1-list .list-part .part-p div h3 a:link,
+#content-1-list .list-part .part-p div h3 a:visited {
+  color: #272727;/*覆盖默认*/
+}
+#content-1-list .list-part .part-p div h3 i {
+  color: #524b8a;
+  font-size: 20px;
+  margin-right: 2px;
+  vertical-align: middle;
+}
+#content-1-list .list-part .part-p div p {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #9B9B9B;
+  line-height: 135%;
+}
+/*:hover时*/
+#content-1-list .list-part:hover {
+  transform: scale(1.1);
+  z-index: 10;
+}
+#content-1-list .list-part:hover h2 {
+  background: #09C0A8;
+  color: #fff;
+}
+#content-1-list .list-part:hover .part-p div .empty::after {
+  content: " >>了解详情";
+  color: #272727;
+}
+#content-1-list .list-part:hover .part-p:hover a:hover h3{
+  color: #09C0A8;
+}
+#content-1-list .list-part:hover .part-p:hover a:hover .empty::after{
+  color: #09C0A8;
+}
+/*采用定位技术布局每一个list-part*/
+#list-part-1 {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#list-part-2 {
+  position: absolute;
+  left: 400px;
+  top: 0;
+}
+#list-part-3 {
+  position: absolute;
+  left: 800px;
+  top: 0;
+}
+/*倒数第二*/
+#content-2-outer {
+  margin-top: 590px;
+  height: 400px;
+  background: url(img/background.jpg) no-repeat fixed;
+  background-size: cover;
+  background-position: 0;
+  transform: translateZ(0);
+
+  position: relative;
+}
+#contact, #content-2-outer div {
+  width: 1200px;
+  margin: 0 auto;
+}
+#contact {
+  overflow: hidden;
+  border-bottom: #fff 1px solid;
+}
+#contact h2 {
+  position: absolute;
+  top: 60px;
+  left: 520px;
+  text-align: center;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 400;
+}
+#contact section {
+  float: left;
+  box-sizing: border-box;
+  width: 33%;
+  margin-top: 130px;
+  padding-bottom: 10px;
+  padding-left: 120px;
+  font-size: 17px;
+  color: #fff;
+}
+#contact section i {
+  font-size: 60px;
+  vertical-align: baseline;
+}
+#content-2-outer #contact-button {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 45px;
+}
+#contact-button a {
+  width: 100px;
+  height: 30px;
+  border: 1px solid #09C0A8;
+  border-radius: 15px;
+  background: #09C0A8;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  line-height: 30px;
+}
+#contact-button a:link,
+#contact-button a:visited {
+  color: #fff;
+}
+#contact-button a:hover {
+  background: #7ccec0;
+  color: aliceblue;
+  text-decoration: none;
+}
+/*最后，控件设计*/
+#control a {
+  display: block;
+  position: fixed;
+  z-index: 9999;
+  right: 20px;;
+  width: 45px;
+  height: 45px;
+  background: #fff;
+  border: #fff 1px solid;
+  border-radius: 15px;
+  /*font-size: 40px;/*不管用？*/
+  font-weight: 700;
+  line-height: 43px;
+  text-align: center;
+
+  transition: 0.5s;
+}
+#control i {
+  font-size: 20px;
+}
+#control a:link, #control a:visited {
+  color: #1d1f20;
+}
+#control a:hover {
+  color: #fff;
+  background: #424547;
+  border: #424547 1px solid;
+  transition: 0.5s;
+}
+#control #contact-qq {
+  bottom: 180px;
+}
+#control #business {
+  bottom: 125px;
+}
+#control #top {
+  bottom: 50px;
+}
